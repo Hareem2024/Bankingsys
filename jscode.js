@@ -1,21 +1,29 @@
 class Bank {
     constructor() {
+
+        // Array
+        // Hashmap
         this.users = [];
         this.uniqueAccountNumber = 1; //counter 
     }
+
     registerUser (username, dateOfBirth, initialAmount) {
-   
-        const registeredUser  = this.users.find(function(user) {
-            return user.username === username;
-        });
-        if (registeredUser ) {
-            return registeredUser .accountNumber;
+        // user object
+        // undefined
+        // findUserName 
+        const registeredUser  = this.users.find(user => user.username === username)
+
+        if (registeredUser) {
+            return registeredUser.accountNumber;
         }
+
         const accountNumber = this.uniqueAccountNumber++;
         this.users.push({ username, dateOfBirth, balance: initialAmount, accountNumber });
         return accountNumber;
     }
-    deposit(accountNumber, amount) {    
+
+    deposit(accountNumber, amount) {
+        // findByAccountNumber
         const user = this.users.find(user => user.accountNumber === accountNumber);
         if (user) {  
             user.balance += amount;
@@ -43,8 +51,10 @@ class Bank {
     }
 
     closeAccount(accountNumber) {
+        //TODO: findIndex
         const index = this.users.findIndex(user => user.accountNumber === accountNumber);
         if (index !== -1) {
+            //TODO deleteUser
             this.users.splice(index, 1);
             console.log(`Account ${accountNumber} closed.`);
             return true;
@@ -53,6 +63,7 @@ class Bank {
         return false;
     }
 }
+
 const bank = new Bank();
 
 const accountNumber1 = bank.registerUser ('hana', '2023-06-01', 1000);
