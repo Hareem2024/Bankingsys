@@ -7,11 +7,16 @@ class Bank {
         this.uniqueAccountNumber = 1; //counter 
     }
 
+    findByUsername(username) {
+        // user
+        // undefined
+    }
+
     registerUser (username, dateOfBirth, initialAmount) {
         // user object
         // undefined
-        // findUserName 
-        const registeredUser  = this.users.find(user => user.username === username)
+        // findUserName
+        const registeredUser  = findUsername(username)
 
         if (registeredUser) {
             return registeredUser.accountNumber;
