@@ -1,5 +1,8 @@
 class Bank {
     constructor() {
+
+        // Array
+        // Hashmap
         this.users = [];
         this.uniqueAccountNumber = 1; //counter 
     }
@@ -15,6 +18,7 @@ class Bank {
         if (registeredUser ) {
             return registeredUser.accountNumber; //existing account number
         }
+
         const accountNumber = this.uniqueAccountNumber++;
         this.users.push({ username, dateOfBirth, balance: initialAmount, accountNumber });
         return accountNumber; //returns new account number if username not registered
@@ -53,6 +57,7 @@ class Bank {
     }
 
     closeAccount(accountNumber) {
+        //TODO: findIndex
         const index = this.users.findIndex(user => user.accountNumber === accountNumber);
                 if (index !== -1) {
                     const newUsers = [];
